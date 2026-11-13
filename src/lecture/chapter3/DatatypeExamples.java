@@ -52,7 +52,37 @@ public class DatatypeExamples {
         System.out.println(numberF);
 
 
+        // boolsche Literale
+        boolean isBoring = false; // true
 
+        // Char Literale
 
+        firstChar = 'a';
+        firstChar = '!';
+        firstChar = '\'';
+        firstChar = '\u2764';
+
+      System.out.println(firstChar);
+
+      String intelligentTextBlock = "\tHello \' World \u2764 ! \n \"toller Text\" \\";
+
+      System.out.println(intelligentTextBlock);
+
+      String html = "<html>\n" +
+        "\t<body>\n" +
+        "\t\t<p>Hello, world</p>\n" +
+        "\t</body>\n" +
+        "</html>";
+
+      System.out.println(html);
+
+      html = """
+          <html>
+            <body>
+              <p>Hello, world</p>
+            </body>
+          </html>
+          """;
+      System.out.println(html);
     }
 }
