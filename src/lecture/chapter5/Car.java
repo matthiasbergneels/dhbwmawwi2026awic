@@ -120,6 +120,12 @@ public class Car {
     this.licensePlate = licensePlate;
   }
 
+  @Override
+  protected void finalize() {
+    System.out.println("Auto der Marke " + this.BRAND + " wird verschrottet!");
+    carCount--;
+  }
+
   // Klassen Methoden
   public static int getCarCount() {
     return carCount;

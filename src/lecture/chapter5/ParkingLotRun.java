@@ -2,7 +2,7 @@ package lecture.chapter5;
 
 public class ParkingLotRun {
 
-  static void main(String[] args) {
+  public static void main(String[] args) {
 
     System.out.println("Aktuelle Anzahl an Autos: " + Car.getCarCount());
 
@@ -43,7 +43,7 @@ public class ParkingLotRun {
     System.out.println("Mein Auto fährt: " + myCar.getCurrentSpeed() + " km/h");
 
     System.out.println("Mein Auto - Farbe: " + myCar.getColor());
-    System.out.println("Mein Auto - Marke: " + myCar.getBrand() + " Preisklasse: " + yourCar.BRAND.getPriceClass());
+    System.out.println("Mein Auto - Marke: " + myCar.getBrand() + " Preisklasse: " + myCar.BRAND.getPriceClass());
     System.out.println("Mein Auto - Nummernschild: " + myCar.getLicensePlate());
     System.out.println("Mein Auto - Leistung: " + myCar.getHp());
 
@@ -58,6 +58,28 @@ public class ParkingLotRun {
     new Car();
     new Car();
     new Car();
+
+    System.gc();
+
+    try {
+      System.out.println("500ms warten... *sleep*");
+      Thread.sleep(500);
+    } catch (InterruptedException e) {
+
+    }
+
+    System.out.println("Aktuelle Anzahl an Autos: " + Car.getCarCount());
+
+    myCar = null;
+    yourCar = null;
+    System.gc();
+
+    try {
+      System.out.println("2s warten... *sleep*");
+      Thread.sleep(2000);
+    } catch (InterruptedException e) {
+
+    }
 
     System.out.println("Aktuelle Anzahl an Autos: " + Car.getCarCount());
 
