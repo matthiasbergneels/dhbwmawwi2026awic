@@ -2,27 +2,59 @@ package lecture.chapter5;
 
 public class Car {
 
-  private final String COLOR_RED = "rot";
-  private final String COLOR_GREEN = "grün";
-  private final String COLOR_BLUE = "blau";
-  private final String COLOR_BLACK = "schwarz";
+  public static final String COLOR_RED = "rot";
+  public static final String COLOR_GREEN = "grün";
+  public static final String COLOR_BLUE = "blau";
+  public static final String COLOR_BLACK = "schwarz";
 
-  // Attribute
+  public enum Brands {
+      MERCEDES("$$$"),
+      LAMBORGHINI("$$$$"),
+      MITSUBIHI("$$"),
+      FIAT("$");
+
+    private String priceClass;
+    private Brands(String priceClass) {
+      this.priceClass = priceClass;
+    }
+
+    public String getPriceClass() {
+      return priceClass;
+    }
+  };
+
+  // Instanz Attribute
   private String color;
   private int hp;
   private double currentSpeed;
-  public final String BRAND;
+  public final Brands BRAND;
   private String licensePlate;
 
+  // Klassen Attribute
+  private static int carCount;
 
   // Konstruktor
-  public Car(String color, int hp, String brand, String licensePlate) {
+  public Car(String color, int hp, Brands brand, String licensePlate) {
     setColor(color);
     setHp(hp);
     this.BRAND = brand;
     setLicensePlate(licensePlate);
 
     this.currentSpeed = 0.0;
+    carCount++;
+  }
+
+  Car(){
+    this("blau", 120, Brands.FIAT, "HIHI");
+    /*
+    setColor("blau");
+    setHp(120);
+    this.BRAND = "Fiat";
+    setLicensePlate("HIHI");
+
+    this.currentSpeed = 0.0;
+    carCount++;
+     */
   }
 
   // Methoden
@@ -53,7 +85,7 @@ public class Car {
     return color;
   }
 
-  public String getBrand() {
+  public Brands getBrand() {
     return BRAND;
   }
 
@@ -86,6 +118,11 @@ public class Car {
 
   public void setLicensePlate(String licensePlate) {
     this.licensePlate = licensePlate;
+  }
+
+  // Klassen Methoden
+  public static int getCarCount() {
+    return carCount;
   }
 
 }
